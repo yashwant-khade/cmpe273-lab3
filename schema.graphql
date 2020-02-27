@@ -1,0 +1,23 @@
+type Query {
+    student_by_id(_id: String!): Student
+    class_by_id(_id: String!): Class
+    students: [Student]
+    classes: [Class]
+}
+
+type Mutation {
+    add_student(name: String!): Student
+    add_class(name: String!): Class
+    add_student_to_class(class_id: String!, student_id: String!): Class
+}
+
+type Student {
+    id: String!
+    name: String!
+}
+
+type Class {
+    id: String!
+    name: String!
+    students: [Student!]
+}
